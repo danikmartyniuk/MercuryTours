@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
+import steps.LoginSteps;
+import steps.RegistrationSteps;
 import utils.CapabilitiesGenerator;
 import utils.TestListener;
 
@@ -14,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     WebDriver driver;
+    RegistrationSteps registrationSteps;
+    LoginSteps loginSteps;
 
     @BeforeTest
     public void setUp () {
@@ -22,7 +26,8 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 
-
+        registrationSteps = new RegistrationSteps(driver);
+        loginSteps = new LoginSteps(driver);
     }
 
     @AfterTest
