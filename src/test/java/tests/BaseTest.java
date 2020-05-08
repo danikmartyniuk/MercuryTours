@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
+import steps.FlightSteps;
 import steps.LoginSteps;
 import steps.RegistrationSteps;
 import utils.CapabilitiesGenerator;
@@ -18,6 +19,7 @@ public class BaseTest {
     WebDriver driver;
     RegistrationSteps registrationSteps;
     LoginSteps loginSteps;
+    FlightSteps flightSteps;
 
     @BeforeTest
     public void setUp () {
@@ -28,6 +30,7 @@ public class BaseTest {
 
         registrationSteps = new RegistrationSteps(driver);
         loginSteps = new LoginSteps(driver);
+        flightSteps = new FlightSteps(driver);
     }
 
     @AfterTest

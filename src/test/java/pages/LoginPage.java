@@ -38,11 +38,9 @@ public class LoginPage extends BasePage {
 
     public void login () {
         driver.findElement(LOGIN_BUTTON).click();
-        if (!driver.findElement(USER_NAME).getText().equals("jackymao") | !driver.findElement(PASSWORD).getText().equals("1234567")) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
-        } else {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Use our Flight Finder')]")));
-        }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("findFlights")));
+
+        //assert
     }
 
 }
