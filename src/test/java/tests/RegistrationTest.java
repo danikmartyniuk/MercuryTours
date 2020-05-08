@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class RegistrationTest extends BaseTest {
 
-    @Test
+    @Test (description = "Input right values")
     public void contactInfoRightValues () {
         registrationSteps
                 .inputContactInformation("Jacky", "Mao", "1234567", "test2020@mailinator.com")
@@ -12,7 +12,7 @@ public class RegistrationTest extends BaseTest {
                 .inputUserInformation("jackymao", "1234567", "1234567");
     }
 
-    @Test
+    @Test (description = "Type letters in phone field")
     public void lettersInPhone () {
         registrationSteps
                 .inputContactInformation("Jacky", "Mao", "lettersInPhone", "test2020@mailinator.com")
@@ -20,7 +20,7 @@ public class RegistrationTest extends BaseTest {
                 .inputUserInformation("jackymao1", "1234567", "1234567");
     }
 
-    @Test
+    @Test (description = "Leaving empty last name field")
     public void emptyLastName () {
         registrationSteps
             .inputContactInformation("Jacky", "", "1234567", "test2020@mailinator.com")
@@ -28,7 +28,7 @@ public class RegistrationTest extends BaseTest {
             .inputUserInformation("jackymao2", "1234567", "1234567");
     }
 
-    @Test
+    @Test (description = "Setting invalid email")
     public void invalidEmail () {
         registrationSteps
                 .inputContactInformation("Jacky", "Mao", "1234567", "test2020Invalidmailinatorcom")
@@ -36,7 +36,7 @@ public class RegistrationTest extends BaseTest {
                 .inputUserInformation("jackymao3", "1234567", "1234567");
     }
 
-    @Test
+    @Test (description = "Invalid password confirmation")
     public void invalidPasswordConfirmation () {
         registrationSteps
                 .inputContactInformation("Jacky", "Mao", "1234567", "test2020@mailinator.com")
@@ -44,7 +44,7 @@ public class RegistrationTest extends BaseTest {
                 .inputUserInformation("jackymao4", "1234567", "12345");
     }
 
-    @Test
+    @Test (description = "Leaving empty password field")
     public void emptyPassword () {
         registrationSteps
                 .inputContactInformation("Jacky", "Mao", "1234567", "test2020@mailinator.com")
@@ -52,19 +52,4 @@ public class RegistrationTest extends BaseTest {
                 .inputUserInformation("jackymao5", "", "1234567");
     }
 
-    @Test
-    public void emptyStateAndPostal () {
-        registrationSteps
-                .inputContactInformation("Jacky", "Mao", "1234567", "test2020@mailinator.com")
-                .inputMailingInformation("Avenue Street, 5", "New York", "", "", "UNITED STATES")
-                .inputUserInformation("jackymao6", "1234567", "1234567");
-    }
-
-    @Test
-    public void invalidCityAndStreet () {
-        registrationSteps
-                .inputContactInformation("Jacky", "Mao", "1234567", "test2020@mailinator.com")
-                .inputMailingInformation("Nexavisimosti, 5", "Old York", "NY", "10001", "UNITED STATES")
-                .inputUserInformation("jackymao7", "1234567", "1234567");
-    }
 }

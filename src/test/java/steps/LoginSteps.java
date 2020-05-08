@@ -13,12 +13,12 @@ public class LoginSteps {
     }
 
     @Step ("Input username {userName} and password {password} on log-in page")
-    public void login (String userName, String password) {
+    public void login (String userName, String password, boolean isRightLogin) {
         loginPage
                 .openPage()
                 .inputUserName(userName)
                 .inputPassword(password)
-                .login();
+                .login(isRightLogin);
     }
 
 }

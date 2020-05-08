@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pages.BookingPage;
 import pages.FlightsPage;
@@ -14,6 +15,7 @@ public class FlightSteps {
         bookingPage = new BookingPage(driver);
     }
 
+    @Step ("Input flight details")
     public FlightSteps inputFlightDetails (int type, String passengers, String depFrom, String depMonth, String depDay, String destination, String retMonth, String retDay) {
         flightsPage
                 .openPage()
@@ -28,6 +30,7 @@ public class FlightSteps {
         return this;
     }
 
+    @Step ("Set preferences")
     public FlightSteps setPreferences (int serviceClass, String airline) {
         flightsPage
                 .setServiceClass(serviceClass)
@@ -36,6 +39,7 @@ public class FlightSteps {
         return this;
     }
 
+    @Step ("Select flight")
     public FlightSteps selectFlight (int depAirline, int retAirline) {
         flightsPage
                 .chooseDepAirline(depAirline)
@@ -44,6 +48,7 @@ public class FlightSteps {
         return this;
     }
 
+    @Step ("Buy tickets")
     public void buyTickets (String[] names, String[] surnames, String cardNumber) {
         bookingPage
                 .openPage()

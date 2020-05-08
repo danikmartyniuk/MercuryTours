@@ -36,11 +36,15 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public void login () {
+    public void login (boolean isRight) {
         driver.findElement(LOGIN_BUTTON).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("findFlights")));
+        if (isRight) {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("findFlights")));
+        } else {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
+        }
 
-        //assert
+
     }
 
 }
